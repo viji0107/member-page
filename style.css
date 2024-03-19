@@ -1,0 +1,184 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Popins", sans-serif;
+}
+
+body {
+  background: radial-gradient(#281c3e, #0f051d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.container .icons {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  left: -50%;
+}
+
+.container .icons .imgBox {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: 0.5s;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0 4px #222, 0 0 0 6px #fff;
+  transform: rotate(calc(360deg / 8 * var(--i)));
+  transform-origin: 340px;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.container .icons .imgBox.recent1 {
+  box-shadow: 0 0 0 6px #222, 0 0 0 12px rgb(110, 4, 4);
+}
+
+.container .icons .imgBox img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotate(calc(-360deg / 8 * var(--i)));
+  transition: 0.5s;
+  filter: grayscale(1);
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.container .icons .imgBox.recent1 img {
+  filter: grayscale(0);
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  inset: 60px;
+
+  border-left: 4px solid violet;
+  border-right: 4px solid #fff;
+  border-radius: 50%;
+  animation: animte_01 5s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes animte_01 {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+.content::after {
+  content: "";
+  position: absolute;
+  inset: 120px;
+  border-left: 4px solid rgb(110, 4, 4);
+  border-right: 4px solid #fff;
+  border-radius: 50%;
+  animation: animte_02 2.5s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes animte_02 {
+  0% {
+    rotate: 360deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+
+.icons1 i {
+  display: inline-block;
+  color: #fff;
+  font-size: 20px;
+  margin: 0 8px;
+  transition: all 0.38s ease;
+}
+.icons1 i:hover {
+  transform: scale(1.2);
+}
+
+.contentBox {
+  position: absolute;
+  transform: scale(0);
+  transition: 0.5s;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentBox.active {
+  transform: scale(1);
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+.contentBox .card .imgBox {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+h3,
+h4 {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  color: #fff;
+}
+
+.icons1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  transition: 0.5s;
+}
+
+.icons1:hover {
+  color: violet;
+}
